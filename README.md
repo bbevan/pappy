@@ -10,11 +10,15 @@ What can pappy help with?
 x = pappy()
 
 x.phase()           #returns the phase array (all arrays are numpy arrays)
+
 x.frequency()        #returns the frequency array
 
 x.show()            #show us a nice, centered FFT2
+
 x.show(hist="eq")   #show us the histogram equalized version
+
 x.show(hist="norm") #we want just a totally normalized array shown
+
 x.show(phase="separate")  #separate the phase from the frequency and display both
 
 x.write()           #save the FFT2 to png
