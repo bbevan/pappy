@@ -20,10 +20,13 @@ class Fourier2:
         self.inverse = numpy.fft.ifft2(self.trans)
         
     def viewfft2(self,f):
-        fp = abs(f)
+        fp = numpy.absolute(f)
 
         # The following two lines are for the sake of Histogram equalization. This is the dirtiest implementation imaginable. 
         # We use the mean as the maximum value since the max of an fft2 is usually an outlier.
+        args = numpy.argmax(fp)
+        fp[args]=0
+        
         mx = fp.max()
         mn = fp.min()
 
@@ -38,18 +41,24 @@ class Fourier2:
         
    
     def viewifft2(self):
-        fp = abs(self.inverse)
+        fp = numpy.absolute(self.inverse)
 
         # The following two lines are for the sake of Histogram equalization. This is the dirtiest implementation imaginable. 
         # We use the mean as the maximum value since the max of an fft2 is usually an outlier.
-        mx = fp.mean()
+        #args = numpy.argmax(fp)
+        #fp[args]=0
+        
+        mx = fp.max()
         mn = fp.min()
 
-        #fp = numpy.divide(fp, mx)
+        fp = numpy.divide(fp, mx)
+
+        # Shift for viewing
+        # fps = numpy.fft.fftshift(fp)
         
         fps = fp
     
-        plt.imshow(fps, vmin=mn, vmax=mx)
+        plt.imshow(fps, vmin=0, vmax=1.0)
     
         plt.show()
         
