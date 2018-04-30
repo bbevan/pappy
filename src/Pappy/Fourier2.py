@@ -19,8 +19,8 @@ class Fourier2:
         self.freq = self.trans.real
         self.inverse = numpy.fft.ifft2(self.trans)
         
-    def viewfft2(self):
-        fp = abs(self.trans)
+    def viewfft2(self,f):
+        fp = abs(f)
 
         # The following two lines are for the sake of Histogram equalization. This is the dirtiest implementation imaginable. 
         # We use the mean as the maximum value since the max of an fft2 is usually an outlier.
@@ -52,6 +52,21 @@ class Fourier2:
         plt.imshow(fps, vmin=0.0, vmax=1.0)
     
         plt.show()
+        
+        
+    
+    def view(self):
+        self.viewfft2(self.trans)
+        
+        
+    def viewinverse(self):
+        self.viewifft2(self.trans)
+        
+    def viewphase(self):
+        self.viewfft2(self.phase)
+        
+    def viewfrequency(self):
+        self.viewfft2(self.freq)
         
         
         
