@@ -3,24 +3,14 @@ Pappy's Wonderful FFT2 Library, Built On Numpy!
 
 The idea is to build a class blueprinting an FFT2 object.
 
-What can pappy help with?
+What can pappy help with? Pappy contains a class called Fourier2 , which stores the 2D FFT and inverse 2D FFT of an image. Pappy helps you visualize things to the best of its ability, knowing the struggle from a teenee bit of experience.
 
-#Depends on numpy for numpy.fft.fft2 and a numpy array
+from Fourier 2 import Fourier 2 as pappy
+fourier = pappy("image.png")
 
-x = pappy()
+Then you can do a number of things.
 
-x.phase()           #returns the phase array (all arrays are numpy arrays)
+fourier.viewfrequency() #display the frequency information from "image.png"
+fourier.viewphase()     #display the phase information from "image.png"
 
-x.frequency()        #returns the frequency array
-
-x.show()            #show us a nice, centered FFT2
-
-x.show(hist="eq")   #show us the histogram equalized version
-
-x.show(hist="norm") #we want just a totally normalized array shown
-
-x.show(phase="separate")  #separate the phase from the frequency and display both
-
-x.write()           #save the FFT2 to png
-
-All of this at least. 
+as well as a few other things that Pappy wants to help with in the future. Pappy depends on Numpy for smooth sailing.
