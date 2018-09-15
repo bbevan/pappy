@@ -19,4 +19,5 @@ fourier.viewphase()     #display the phase information from "image.png"
 as well as a few other things that Pappy wants to help with in the future. Pappy depends on Numpy for smooth sailing. Free as in beer.
 
 Enjoy
+
 -Brandon
